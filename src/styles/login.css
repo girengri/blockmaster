@@ -1,0 +1,103 @@
+.bglogin {
+  background-image: url("https://res.cloudinary.com/girengri/image/upload/v1644417664/blockmasterimagenes/samuel-regan-asante-wMkaMXTJjlQ-unsplash_nimolg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  padding-bottom: 12rem;
+}
+
+.bglogin::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-negro-transparencia);
+}
+
+.centrarSesion {
+  margin: 10rem auto;
+  width: 22rem;
+  height: 30rem;
+  background-color: var(--color-negro-formulario);
+  position: relative;
+  border-radius: 20px;
+  color: var(--color-blanco);
+}
+
+.itemlogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 16px;
+}
+
+input:focus {
+  outline: none;
+  background: var(--color-gris-clickinput);
+  color: var(--color-blanco);
+  padding-left: 0.5rem;
+}
+
+::placeholder {
+  color: var(--color-blanco);
+  font-size: 0.9rem;
+  font-weight: 300;
+  padding-left: 0.7rem;
+}
+
+.itemcajas {
+  border: none;
+  border-radius: 5px;
+  width: 15rem;
+  height: 3rem;
+  background-color: var(--color-gris-placeholders);
+}
+
+span {
+  margin-bottom: 1rem;
+}
+
+.logoprincipal {
+  position: relative;
+}
+
+.btnlogin {
+  border: none;
+  background-color: var(--color-azul-botones);
+  color: white;
+  width: 15rem;
+  height: 3rem;
+  border-radius: 10px;
+}
+
+.centrarSesion h2 {
+  font-size: 30px;
+  font-weight: 700;
+  padding-top: 2rem;
+  padding-left: 2rem;
+}
+
+.coloritemlogin {
+  color: var(--color-gris-letraslogin);
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.registrate {
+  text-decoration: none;
+  color: var(--color-blanco);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.contenedorRegistro {
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+}
+
+.btnlogin:hover {
+  background-color: var(--color-azul-hover);
+}

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { loginEmailAndPassword, loginGoogle } from "../actions/actionLogin";
 import { useForm } from "../hooks/useForm";
+import "../styles/login.css";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -23,18 +24,18 @@ const Login = () => {
     dispatch(loginGoogle());
   };
   return (
-    <div>
+    <div className="bglogin">
       <div>
         <img
-          src="https://res.cloudinary.com/girengri/image/upload/v1642129826/amazonasbanners/Amazon_Logo_gdncuo.png"
+          src="https://res.cloudinary.com/girengri/image/upload/v1644417659/blockmasterimagenes/logo-blockBuster_alf0fk.png"
           alt="logo"
+          className="logoprincipal"
         />
       </div>
-      <div>
-        <h1>Iniciar sesión</h1>
 
-        <form onSubmit={handleLogin}>
-          <h5>Dirección de correo electrónico</h5>
+      <form className="centrarSesion" onSubmit={handleLogin}>
+        <h2>Inicia sesión</h2>
+        <div className="itemlogin">
           <input
             id="correo"
             name="correo"
@@ -42,9 +43,12 @@ const Login = () => {
             required
             value={correo}
             onChange={handleInputChange}
+            placeholder="Dirección de correo electrónico"
+            className="itemcajas"
+            autoComplete="off"
           />
-
-          <h5>Contraseña</h5>
+        </div>
+        <div className="itemlogin">
           <input
             id="contraseña"
             name="contraseña"
@@ -52,22 +56,33 @@ const Login = () => {
             required
             value={contraseña}
             onChange={handleInputChange}
+            placeholder="Contraseña"
+            className="itemcajas"
+            autoComplete="off"
           />
-        </form>
-        <div>
-          <button type="submit">Iniciar sesión</button>
-
-          <button onClick={() => handleGoogle()}>
+        </div>
+        <div className="itemlogin">
+          <button className="btnlogin" type="submit">
+            Iniciar sesión
+          </button>
+        </div>
+        <div className="itemlogin">
+          <button className="btnlogin" onClick={() => handleGoogle()}>
             Iniciar sesión con Google
           </button>
-
-          <button>Iniciar sesión con Facebook</button>
         </div>
-      </div>
-      <p>¿Eres nuevo en Amazonas?</p>
-      <Link to="/registro">
-        <button>Crea tu cuenta de Amazonas</button>
-      </Link>
+        <div className="itemlogin">
+          <button className="btnlogin">Iniciar sesión con Facebook</button>
+        </div>
+        <p className="itemlogin coloritemlogin">
+          ¿Primera vez en Block Master?
+          <span className="contenedorRegistro">
+            <Link className="registrate" to="/registro">
+              Registrate
+            </Link>
+          </span>
+        </p>
+      </form>
     </div>
   );
 };

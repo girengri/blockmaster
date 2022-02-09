@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --color-negro: #0f0e17;
+  --color-amarillo: #fed941;
+  --color-gris: #a7a9be;
+  --color-blanco: #fffffe;
+  --color-negro-transparencia: rgba(0, 0, 0, 0.274);
+  --color-negro-formulario: rgba(0, 0, 0, 0.719);
+  --color-gris-placeholders: rgba(70, 66, 66, 0.884);
+  --color-azul-botones: #0e3fa9;
+  --color-gris-clickinput: rgba(85, 82, 82, 0.726);
+  --color-gris-letraslogin: hsla(0, 30%, 95%, 0.569);
+  --color-azul-hover: #0e3fa9a9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
