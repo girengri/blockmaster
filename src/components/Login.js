@@ -1,8 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { loginEmailAndPassword, loginGoogle } from "../actions/actionLogin";
 import { useForm } from "../hooks/useForm";
 
 const Login = () => {
+  const dispatch = useDispatch();
+
   const [values, handleInputChange] = useForm({
     correo: "",
     contraseña: "",
@@ -12,6 +16,11 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    dispatch(loginEmailAndPassword(correo, contraseña));
+  };
+
+  const handleGoogle = () => {
+    dispatch(loginGoogle());
   };
   return (
     <div>
@@ -48,7 +57,9 @@ const Login = () => {
         <div>
           <button type="submit">Iniciar sesión</button>
 
-          <button>Iniciar sesión con Google</button>
+          <button onClick={() => handleGoogle()}>
+            Iniciar sesión con Google
+          </button>
 
           <button>Iniciar sesión con Facebook</button>
         </div>

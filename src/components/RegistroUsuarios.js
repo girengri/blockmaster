@@ -1,8 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { registroEmailPasswordNombre } from "../actions/actionRegister";
 import { useForm } from "../hooks/useForm";
 
 const RegistroUsuarios = () => {
+  const dispatch = useDispatch();
+
   const [values, handleInputChange] = useForm({
     nombre: "",
     correo: "",
@@ -14,6 +18,7 @@ const RegistroUsuarios = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(registroEmailPasswordNombre(correo, contraseña1, nombre));
   };
   return (
     <div>

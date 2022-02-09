@@ -1,19 +1,53 @@
-import React from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Home from "../containers/Home";
-import Navbar from "../components/Navbar";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RegistroUsuarios from "../components/RegistroUsuarios";
 import Login from "../components/Login";
+import { PanelRutasPrivadas } from "./PanelRutasPrivadas";
+import PublicRoute from "./PublicRoute";
+import PrivateRoute from "./PrivateRoute";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const AppRouter = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user?.uid) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
+  }, []);
+
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/registro" element={<RegistroUsuarios />} />
-        <Route path="/iniciarsesion" element={<Login />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route
+          path="/registro"
+          element={
+            <PublicRoute isAuthenticated={isLoggedIn}>
+              <RegistroUsuarios />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/iniciarsesion"
+          element={
+            <PublicRoute isAuthenticated={isLoggedIn}>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/*"
+          element={
+            <PrivateRoute isAuthenticated={isLoggedIn}>
+              <PanelRutasPrivadas />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
