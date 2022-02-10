@@ -54,6 +54,7 @@ input:focus {
   width: 15rem;
   height: 3rem;
   background-color: var(--color-gris-placeholders);
+  color: var(--color-blanco);
 }
 
 span {
