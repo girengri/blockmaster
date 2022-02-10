@@ -1,7 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { loginEmailAndPassword, loginGoogle } from "../actions/actionLogin";
+import {
+  loginEmailAndPassword,
+  loginFacebook,
+  loginGoogle,
+} from "../actions/actionLogin";
 import { useForm } from "../hooks/useForm";
 import "../styles/login.css";
 
@@ -22,6 +26,9 @@ const Login = () => {
 
   const handleGoogle = () => {
     dispatch(loginGoogle());
+  };
+  const handleFacebook = () => {
+    dispatch(loginFacebook());
   };
   return (
     <div className="bglogin">
@@ -72,7 +79,9 @@ const Login = () => {
           </button>
         </div>
         <div className="itemlogin">
-          <button className="btnlogin">Iniciar sesión con Facebook</button>
+          <button className="btnlogin" onClick={() => handleFacebook()}>
+            Iniciar sesión con Facebook
+          </button>
         </div>
         <p className="itemlogin coloritemlogin">
           ¿Primera vez en Block Master?

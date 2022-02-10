@@ -5,7 +5,7 @@ import {
     signInWithEmailAndPassword,
     signOut,
 } from "firebase/auth";
-import { google } from "../firebase/firebaseConfig";
+import { facebook, google } from "../firebase/firebaseConfig";
 
 export const logoutAsincrono = () => {
     return (dispatch) => {
@@ -47,6 +47,18 @@ export const loginGoogle = () => {
     return (dispatch) => {
         const auth = getAuth();
         signInWithPopup(auth, google)
+            .then((user) => {
+                // console.log(user);
+                dispatch(loginSincrono(user.uid, user.displayName));
+            })
+            .catch((error) => console.log(error));
+    };
+};
+
+export const loginFacebook = () => {
+    return (dispatch) => {
+        const auth = getAuth();
+        signInWithPopup(auth, facebook)
             .then((user) => {
                 // console.log(user);
                 dispatch(loginSincrono(user.uid, user.displayName));

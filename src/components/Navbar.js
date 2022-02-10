@@ -52,7 +52,7 @@ const Navbar = () => {
           {ubicacion}
         </span>
 
-        <Link className="linknavbar" to="/peliculastodas">
+        <Link className="linknavbar" to="/">
           Todas
         </Link>
         <Link className="linknavbar" to="#">
