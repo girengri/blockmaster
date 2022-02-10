@@ -3,6 +3,7 @@ import { loginReducer } from "../reducers/loginReducer";
 import { registerReducer } from "../reducers/registerReducer";
 import thunk from "redux-thunk";
 
+
 const composeEnhancers =
     (typeof window !== "undefined" &&
         window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||

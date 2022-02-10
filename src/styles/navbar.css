@@ -39,6 +39,7 @@
 
 .cerrarSesion {
   cursor: pointer;
+  margin-top: 18px;
 }
 
 .inputNavbar:focus {

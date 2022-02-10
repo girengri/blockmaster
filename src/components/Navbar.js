@@ -1,5 +1,4 @@
-import { async } from "@firebase/util";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logoutAsincrono } from "../actions/actionLogin";
@@ -53,7 +52,7 @@ const Navbar = () => {
           {ubicacion}
         </span>
 
-        <Link className="linknavbar" to="#">
+        <Link className="linknavbar" to="/peliculastodas">
           Todas
         </Link>
         <Link className="linknavbar" to="#">
@@ -79,6 +78,10 @@ const Navbar = () => {
           />
         </form>
       </div>
+
+      <Link className="linknavbar" to="/registroPeliculas">
+        Agregar Peliculas
+      </Link>
       <span className="linknavbar cerrarSesion" onClick={() => handleLogout()}>
         Cerrar Sesion
       </span>
