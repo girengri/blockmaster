@@ -79,3 +79,30 @@ export const eliminarPeliculaSincrono = (sinopsis) => {
         payload: sinopsis,
     };
 };
+
+//Buscar
+export const buscarPeliculasAsincrono = (inputText) => {
+    return async (dispatch) => {
+        // console.log(inputText);
+        const coleccion = collection(dataBase, "peliculasdb");
+        // console.log(coleccion);
+        const consulta = query(coleccion, where("nombre", "==", inputText));
+        // console.log(consulta);
+        const datos = await getDocs(consulta);
+        let peliculasEncontrada = [];
+        // console.log(datos);
+        datos.forEach((dat) => {
+            // console.log(dat.data());
+            peliculasEncontrada.push(dat.data());
+        });
+        // console.log(peliculaEncontrada);
+        dispatch(buscarPeliculasSincrono(peliculasEncontrada));
+    };
+};
+
+export const buscarPeliculasSincrono = (peliculas) => {
+    return {
+        type: typesPeliculas.buscar,
+        payload: peliculas,
+    };
+};

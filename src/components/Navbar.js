@@ -2,10 +2,25 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logoutAsincrono } from "../actions/actionLogin";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import "../styles/navbar.css";
+import { buscarPeliculasAsincrono } from "../actions/actionPeliculas";
 
 const Navbar = ({ usuario }) => {
   let url = "";
+
+  const formik = useFormik({
+    initialValues: {
+      buscado: "",
+    },
+    validationSchema: Yup.object({
+      buscado: Yup.string().required(),
+    }),
+    onSubmit: ({ buscado }) => {
+      dispatch(buscarPeliculasAsincrono(buscado));
+    },
+  });
 
   const [ubicacion, setUbicacion] = useState("Obtener Ubicacion");
 
@@ -61,11 +76,12 @@ const Navbar = ({ usuario }) => {
         Menos valoradas
       </Link>
 
-      <form className="buscadorinput">
+      <form className="buscadorinput" onSubmit={formik.handleSubmit}>
         <input
           placeholder="Busca tu pelicula favorita"
           className="inputNavbar"
-          type="text"
+          name="buscado"
+          onChange={formik.handleChange}
         />
 
         <img
@@ -77,10 +93,10 @@ const Navbar = ({ usuario }) => {
 
       <p>
         Bienvenido <br />
-        {usuario.displayName}
+        {usuario?.displayName}
         <img
           className="fotoPerfilUsuario"
-          src={usuario.photoURL}
+          src={usuario?.photoURL}
           alt="imagenusuario"
           width="50"
         />

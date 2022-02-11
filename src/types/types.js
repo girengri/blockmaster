@@ -8,4 +8,5 @@ export const typesPeliculas = {
     registrar: "REGISTRAR",
     listar: "LISTAR",
     eliminar: "ELIMINAR",
+    buscar: "BUSCAR",
 };
