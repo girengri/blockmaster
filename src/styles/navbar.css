@@ -9,7 +9,7 @@
 .linknavbar {
   text-decoration: none;
   color: var(--color-blanco);
-  padding: 0.3rem;
+  padding: 12px;
 }
 
 .ubicacionNavbar {
@@ -58,4 +58,8 @@
   right: 12px;
   width: 42px;
   border-radius: 5px;
+}
+
+.fotoPerfilUsuario{
+  border-radius: 50%;
 }

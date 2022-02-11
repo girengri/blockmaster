@@ -9,10 +9,13 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const AppRouter = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState("");
 
   useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
+      // console.log(user);
+      setUser(user);
       if (user?.uid) {
         setIsLoggedIn(true);
       } else {
@@ -44,7 +47,7 @@ const AppRouter = () => {
           path="/*"
           element={
             <PrivateRoute isAuthenticated={isLoggedIn}>
-              <PanelRutasPrivadas />
+              <PanelRutasPrivadas user={user} />
             </PrivateRoute>
           }
         />

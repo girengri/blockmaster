@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { logoutAsincrono } from "../actions/actionLogin";
 import "../styles/navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ usuario }) => {
   let url = "";
 
   const [ubicacion, setUbicacion] = useState("Obtener Ubicacion");
@@ -37,47 +37,54 @@ const Navbar = () => {
 
   return (
     <nav className="contenedorNavbar">
-      <div>
+      <img
+        src="https://res.cloudinary.com/girengri/image/upload/v1644417659/blockmasterimagenes/logo-blockBuster_alf0fk.png"
+        alt="logo"
+        className="logonavbar"
+      />
+
+      <span className="ubicacionNavbar" onClick={() => getCoordenadas()}>
         <img
-          src="https://res.cloudinary.com/girengri/image/upload/v1644417659/blockmasterimagenes/logo-blockBuster_alf0fk.png"
-          alt="logo"
-          className="logonavbar"
+          src="https://res.cloudinary.com/girengri/image/upload/v1644452832/blockmasterimagenes/icons8-map-24_xoelta.png"
+          alt="ubicacion"
+        />
+        {ubicacion}
+      </span>
+
+      <Link className="linknavbar" to="/">
+        Todas
+      </Link>
+      <Link className="linknavbar" to="#">
+        Más valoradas
+      </Link>
+      <Link className="linknavbar" to="#">
+        Menos valoradas
+      </Link>
+
+      <form className="buscadorinput">
+        <input
+          placeholder="Busca tu pelicula favorita"
+          className="inputNavbar"
+          type="text"
         />
 
-        <span className="ubicacionNavbar" onClick={() => getCoordenadas()}>
-          <img
-            src="https://res.cloudinary.com/girengri/image/upload/v1644452832/blockmasterimagenes/icons8-map-24_xoelta.png"
-            alt="ubicacion"
-          />
-          {ubicacion}
-        </span>
+        <img
+          src="https://res.cloudinary.com/girengri/image/upload/v1644455127/blockmasterimagenes/primary_prsbdy.png"
+          alt="buscador"
+          className="imgbuscador"
+        />
+      </form>
 
-        <Link className="linknavbar" to="/">
-          Todas
-        </Link>
-        <Link className="linknavbar" to="#">
-          Más valoradas
-        </Link>
-        <Link className="linknavbar" to="#">
-          Menos valoradas
-        </Link>
-      </div>
-
-      <div>
-        <form className="buscadorinput">
-          <input
-            placeholder="Busca tu pelicula favorita"
-            className="inputNavbar"
-            type="text"
-          />
-
-          <img
-            src="https://res.cloudinary.com/girengri/image/upload/v1644455127/blockmasterimagenes/primary_prsbdy.png"
-            alt="buscador"
-            className="imgbuscador"
-          />
-        </form>
-      </div>
+      <p>
+        Bienvenido <br />
+        {usuario.displayName}
+        <img
+          className="fotoPerfilUsuario"
+          src={usuario.photoURL}
+          alt="imagenusuario"
+          width="50"
+        />
+      </p>
 
       <Link className="linknavbar" to="/registroPeliculas">
         Agregar Peliculas

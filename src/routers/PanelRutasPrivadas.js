@@ -4,10 +4,10 @@ import Navbar from "../components/Navbar";
 import Home from "../containers/Home";
 import RegistroPeliculas from "../containers/RegistroPeliculas";
 
-export const PanelRutasPrivadas = () => {
+export const PanelRutasPrivadas = ({ user }) => {
     return (
         <div>
-            <Navbar />
+            <Navbar usuario={user} />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/registroPeliculas" element={<RegistroPeliculas />} />
