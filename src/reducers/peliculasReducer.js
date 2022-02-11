@@ -18,7 +18,9 @@ export const peliculasReducer = (state = initialState, action) => {
 
         case typesPeliculas.eliminar:
             return {
-                ...state,
+                peliculas: state.peliculas.filter(
+                    (pel) => pel.sinopsis !== action.payload
+                ),
             };
 
         default:

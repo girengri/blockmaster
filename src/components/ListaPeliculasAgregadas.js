@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { listarPeliculasAsincrono } from "../actions/actionPeliculas";
+import {
+  eliminarPeliculaASincrono,
+  listarPeliculasAsincrono,
+} from "../actions/actionPeliculas";
 
 const ListaPeliculasAgregadas = () => {
   const dispatch = useDispatch();
@@ -19,9 +22,7 @@ const ListaPeliculasAgregadas = () => {
             <th scope="col">Imagen</th>
             <th scope="col">Nombre</th>
             <th scope="col">Año</th>
-            <th scope="col">Genero</th>
-            <th scope="col">Duracion</th>
-            <th scope="col">Calificacion</th>
+            <th scope="col">Sinopsis</th>
             <th scope="col">Accion</th>
           </tr>
         </thead>
@@ -34,16 +35,19 @@ const ListaPeliculasAgregadas = () => {
               </td>
               <td>{pelicul.nombre}</td>
               <td>{pelicul.año}</td>
-              <td>{pelicul.genero}</td>
-              <td>{pelicul.duracion}</td>
-              <td>{pelicul.calificacion}</td>
+              <td>{pelicul.sinopsis}</td>
               <td>
                 <button className="btn btn-success btn-sm float-end mx-2">
                   Modificar
                 </button>
               </td>
               <td>
-                <button className="btn btn-danger btn-sm float-end">
+                <button
+                  onClick={() =>
+                    dispatch(eliminarPeliculaASincrono(pelicul.sinopsis))
+                  }
+                  className="btn btn-danger btn-sm float-end"
+                >
                   Eliminar
                 </button>
               </td>

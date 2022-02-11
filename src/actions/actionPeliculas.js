@@ -1,5 +1,13 @@
 import { typesPeliculas } from "../types/types";
-import { addDoc, collection, doc, getDocs } from "firebase/firestore";
+import {
+    addDoc,
+    collection,
+    deleteDoc,
+    doc,
+    getDocs,
+    query,
+    where,
+} from "firebase/firestore";
 import { dataBase } from "../firebase/firebaseConfig";
 
 //Crear (METODO POST)
@@ -49,9 +57,25 @@ export const listarPeliculasSincrono = (peliculas) => {
 };
 
 //Eliminar (METODO DELETE)
-export const eliminarPeliculaSincrono = (correo) => {
+export const eliminarPeliculaASincrono = (sinopsis) => {
+    return async (dispatch) => {
+        const coleccion = collection(dataBase, "peliculasdb");
+        // console.log(coleccion);
+        const consulta = query(coleccion, where("sinopsis", "==", sinopsis));
+        // console.log(consulta);
+        const datos = await getDocs(consulta);
+        // console.log(datos);
+        datos.forEach((docu) => {
+            // console.log(docu.id);
+            deleteDoc(doc(dataBase, "peliculasdb", docu.id));
+        });
+        dispatch(eliminarPeliculaSincrono(sinopsis));
+    };
+};
+
+export const eliminarPeliculaSincrono = (sinopsis) => {
     return {
         type: typesPeliculas.eliminar,
-        payload: correo,
+        payload: sinopsis,
     };
 };
