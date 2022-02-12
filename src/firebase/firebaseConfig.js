@@ -3,12 +3,12 @@ import { FacebookAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBGpCc7MWyli1pTnhc_43U5vemEOwPBoic",
-    authDomain: "blockmasterapp-1cdc0.firebaseapp.com",
-    projectId: "blockmasterapp-1cdc0",
-    storageBucket: "blockmasterapp-1cdc0.appspot.com",
-    messagingSenderId: "835651245252",
-    appId: "1:835651245252:web:257aa6dac8def4abe76591",
+    apiKey: "AIzaSyDL0g6XJ-BjBQjXNAu0gaXZBNLRcI6Opvw",
+    authDomain: "blockmasterapp-f8bbb.firebaseapp.com",
+    projectId: "blockmasterapp-f8bbb",
+    storageBucket: "blockmasterapp-f8bbb.appspot.com",
+    messagingSenderId: "612720648384",
+    appId: "1:612720648384:web:83632781c04b408c690d25",
 };
 
 const app = initializeApp(firebaseConfig);

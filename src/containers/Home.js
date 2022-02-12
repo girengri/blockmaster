@@ -16,7 +16,7 @@ const Home = () => {
       <ul className="gridPeliculas">
         {peliculas.map((pelicul, index) => (
           <li className="movieCard" key={index}>
-            <div className="puntuacionCard">{pelicul.calificacion}</div>
+            <div className="puntuacionCard">{pelicul.calificacion}%</div>
             <img
               className="movieImage"
               src={pelicul.imagen}
