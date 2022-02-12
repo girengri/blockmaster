@@ -27,6 +27,7 @@ const Login = () => {
   const handleGoogle = () => {
     dispatch(loginGoogle());
   };
+
   const handleFacebook = () => {
     dispatch(loginFacebook());
   };

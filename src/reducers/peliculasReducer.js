@@ -22,6 +22,10 @@ export const peliculasReducer = (state = initialState, action) => {
                     (pel) => pel.sinopsis !== action.payload
                 ),
             };
+        case typesPeliculas.buscar:
+            return {
+                peliculas: action.payload,
+            };
 
         default:
             return state;
