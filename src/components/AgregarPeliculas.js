@@ -1,27 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { fileUpload } from "../helpers/FileUpload";
-import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { registroPeliculaAsincrono } from "../actions/actionPeliculas";
+import { v4 as uuidv4 } from "uuid";
 
 const AgregarPeliculas = () => {
     const dispatch = useDispatch();
 
-    const formik = useFormik({
-        initialValues: {
-            imagen: "",
-            nombre: "",
-            año: 1900,
-            genero: "",
-            duracion: "",
-            calificacion: 1,
-            sinopsis: "",
-        },
-        onSubmit: (data) => {
-            // console.log(data);
-            dispatch(registroPeliculaAsincrono(data));
-        },
+    const [inputForm, setinputForm] = useState({
+        imagen: "",
+        nombre: "",
+        año: 0,
+        genero: "",
+        duracion: "",
+        calificacion: 0,
+        sinopsis: "",
     });
+
+    const { imagen, nombre, año, genero, duracion, calificacion, sinopsis } =
+        inputForm;
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const data = {
+            id: uuidv4(),
+            imagen,
+            nombre,
+            año,
+            genero,
+            duracion,
+            calificacion,
+            sinopsis,
+        };
+        dispatch(registroPeliculaAsincrono(data));
+    };
+
+    const handleChange = ({ target }) => {
+        setinputForm({
+            ...inputForm,
+            [target.name]: target.value,
+        });
+    };
+
     const handleInputClick = () => {
         document.querySelector("#inputImagen").click();
     };
@@ -32,7 +52,10 @@ const AgregarPeliculas = () => {
         fileUpload(file)
             .then((response) => {
                 // console.log(response);
-                formik.initialValues.imagen = response;
+                setinputForm({
+                    ...inputForm,
+                    imagen: response,
+                });
                 console.log(response);
             })
             .catch((error) => {
@@ -43,7 +66,7 @@ const AgregarPeliculas = () => {
     return (
         <div>
             <h3 className="text-center">Agregar Peliculas</h3>
-            <form className="form-group" onSubmit={formik.handleSubmit}>
+            <form className="form-group" onSubmit={handleSubmit}>
                 <input
                     id="inputImagen"
                     type="file"
@@ -70,7 +93,8 @@ const AgregarPeliculas = () => {
                     name="nombre"
                     required
                     autoComplete="off"
-                    onChange={formik.handleChange}
+                    onChange={handleChange}
+                    value={nombre}
                 />
 
                 <input
@@ -82,7 +106,8 @@ const AgregarPeliculas = () => {
                     required
                     autoComplete="off"
                     min="1900"
-                    onChange={formik.handleChange}
+                    onChange={handleChange}
+                    value={año}
                 />
 
                 <input
@@ -93,7 +118,8 @@ const AgregarPeliculas = () => {
                     name="genero"
                     required
                     autoComplete="off"
-                    onChange={formik.handleChange}
+                    onChange={handleChange}
+                    value={genero}
                 />
 
                 <input
@@ -104,7 +130,8 @@ const AgregarPeliculas = () => {
                     name="duracion"
                     required
                     autoComplete="off"
-                    onChange={formik.handleChange}
+                    onChange={handleChange}
+                    value={duracion}
                 />
 
                 <input
@@ -116,7 +143,8 @@ const AgregarPeliculas = () => {
                     required
                     autoComplete="off"
                     min="1"
-                    onChange={formik.handleChange}
+                    onChange={handleChange}
+                    value={calificacion}
                 />
 
                 <textarea
@@ -126,7 +154,8 @@ const AgregarPeliculas = () => {
                     name="sinopsis"
                     required
                     autoComplete="off"
-                    onChange={formik.handleChange}
+                    onChange={handleChange}
+                    value={sinopsis}
                 ></textarea>
 
                 <div className="d-grid gap-2 mx-auto mt-2">

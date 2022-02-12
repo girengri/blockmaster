@@ -57,11 +57,11 @@ export const listarPeliculasSincrono = (peliculas) => {
 };
 
 //Eliminar (METODO DELETE)
-export const eliminarPeliculaASincrono = (sinopsis) => {
+export const eliminarPeliculaASincrono = (id) => {
     return async (dispatch) => {
         const coleccion = collection(dataBase, "peliculasdb");
         // console.log(coleccion);
-        const consulta = query(coleccion, where("sinopsis", "==", sinopsis));
+        const consulta = query(coleccion, where("id", "==", id));
         // console.log(consulta);
         const datos = await getDocs(consulta);
         // console.log(datos);
@@ -69,40 +69,14 @@ export const eliminarPeliculaASincrono = (sinopsis) => {
             // console.log(docu.id);
             deleteDoc(doc(dataBase, "peliculasdb", docu.id));
         });
-        dispatch(eliminarPeliculaSincrono(sinopsis));
+        dispatch(eliminarPeliculaSincrono(id));
+        dispatch(listarPeliculasAsincrono());
     };
 };
 
-export const eliminarPeliculaSincrono = (sinopsis) => {
+export const eliminarPeliculaSincrono = (id) => {
     return {
         type: typesPeliculas.eliminar,
-        payload: sinopsis,
-    };
-};
-
-//Buscar
-export const buscarPeliculasAsincrono = (inputText) => {
-    return async (dispatch) => {
-        // console.log(inputText);
-        const coleccion = collection(dataBase, "peliculasdb");
-        // console.log(coleccion);
-        const consulta = query(coleccion, where("nombre", "==", inputText));
-        // console.log(consulta);
-        const datos = await getDocs(consulta);
-        let peliculasEncontrada = [];
-        // console.log(datos);
-        datos.forEach((dat) => {
-            // console.log(dat.data());
-            peliculasEncontrada.push(dat.data());
-        });
-        // console.log(peliculaEncontrada);
-        dispatch(buscarPeliculasSincrono(peliculasEncontrada));
-    };
-};
-
-export const buscarPeliculasSincrono = (peliculas) => {
-    return {
-        type: typesPeliculas.buscar,
-        payload: peliculas,
+        payload: id,
     };
 };

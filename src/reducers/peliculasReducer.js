@@ -23,11 +23,6 @@ export const peliculasReducer = (state = initialState, action) => {
                 ),
             };
 
-        case typesPeliculas.buscar:
-            return {
-                peliculas: [action.payload],
-            };
-
         default:
             return state;
     }

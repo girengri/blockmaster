@@ -44,7 +44,7 @@ const ListaPeliculasAgregadas = () => {
               <td>
                 <button
                   onClick={() =>
-                    dispatch(eliminarPeliculaASincrono(pelicul.sinopsis))
+                    dispatch(eliminarPeliculaASincrono(pelicul.id))
                   }
                   className="btn btn-danger btn-sm float-end"
                 >

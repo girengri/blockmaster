@@ -1,0 +1,52 @@
+.bgHome {
+  background: var(--color-negro);
+}
+
+.colorNombrePelicula {
+  font-size: 1.2rem;
+}
+
+.movieCard {
+  list-style: none;
+  color: var(--color-blanco);
+  text-align: center;
+  position: relative;
+}
+
+.movieImage {
+  border-radius: 10px;
+  background-color: var(--color-blanco);
+}
+
+.gridPeliculas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 230px);
+  gap: 40px;
+  padding: 40px;
+  justify-content: center;
+}
+.puntuacionCard {
+  position: absolute;
+  z-index: 2;
+  border: 3px solid var(--color-amarillo);
+  background: var(--color-gris-placeholders);
+  font-weight: 700;
+  border-radius: 50px;
+  top: 1rem;
+  left: -1px;
+  padding: 10px;
+}
+
+@media (max-width: 560px) {
+  .gridPeliculas {
+    grid-template-columns: 100%;
+  }
+  .movieImage {
+    width: 90%;
+    height: auto;
+  }
+
+  .puntuacionCard {
+    left: 1.3rem;
+  }
+}

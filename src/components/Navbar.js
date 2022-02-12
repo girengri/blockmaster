@@ -1,32 +1,37 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { logoutAsincrono } from "../actions/actionLogin";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import querystring from "query-string";
 import "../styles/navbar.css";
-import { buscarPeliculasAsincrono } from "../actions/actionPeliculas";
+// import { buscarPeliculasSincrono } from "../actions/actionPeliculas";
 
 const Navbar = ({ usuario }) => {
   let url = "";
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { q = "" } = querystring.parse(location.search);
+
   const formik = useFormik({
     initialValues: {
-      buscado: "",
+      buscado: q,
     },
     validationSchema: Yup.object({
       buscado: Yup.string().required(),
     }),
     onSubmit: ({ buscado }) => {
-      dispatch(buscarPeliculasAsincrono(buscado));
+      // dispatch(buscarPeliculasAsincrono(buscado));
+      navigate(`?q=${buscado}`);
+      // dispatch(buscarPeliculasSincrono(buscado));
     },
   });
 
   const [ubicacion, setUbicacion] = useState("Obtener Ubicacion");
 
   const dispatch = useDispatch();
-
-  const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(logoutAsincrono());
