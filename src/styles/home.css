@@ -11,6 +11,10 @@
   color: var(--color-blanco);
   text-align: center;
   position: relative;
+  cursor: pointer;
+}
+.movieCard:hover {
+  background: #423e581f;
 }
 
 .movieImage {

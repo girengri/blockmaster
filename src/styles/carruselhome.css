@@ -1,0 +1,8 @@
+.contenedorCarrusel {
+  padding: 1rem;
+  background: var(--color-negro);
+}
+
+.borderrendondeado {
+  border-radius: 50px;
+}

@@ -1,24 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { fileUpload } from "../helpers/FileUpload";
 import { useDispatch } from "react-redux";
 import { registroPeliculaAsincrono } from "../actions/actionPeliculas";
 import { v4 as uuidv4 } from "uuid";
+import { useForm } from "../hooks/useForm";
 
 const AgregarPeliculas = () => {
     const dispatch = useDispatch();
 
-    const [inputForm, setinputForm] = useState({
+    const [values, handleInputChange, setValues] = useForm({
         imagen: "",
         nombre: "",
-        año: 0,
+        año: "",
         genero: "",
         duracion: "",
-        calificacion: 0,
+        calificacion: "",
         sinopsis: "",
     });
 
     const { imagen, nombre, año, genero, duracion, calificacion, sinopsis } =
-        inputForm;
+        values;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -35,13 +36,6 @@ const AgregarPeliculas = () => {
         dispatch(registroPeliculaAsincrono(data));
     };
 
-    const handleChange = ({ target }) => {
-        setinputForm({
-            ...inputForm,
-            [target.name]: target.value,
-        });
-    };
-
     const handleInputClick = () => {
         document.querySelector("#inputImagen").click();
     };
@@ -52,8 +46,8 @@ const AgregarPeliculas = () => {
         fileUpload(file)
             .then((response) => {
                 // console.log(response);
-                setinputForm({
-                    ...inputForm,
+                setValues({
+                    ...values,
                     imagen: response,
                 });
                 console.log(response);
@@ -93,7 +87,7 @@ const AgregarPeliculas = () => {
                     name="nombre"
                     required
                     autoComplete="off"
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                     value={nombre}
                 />
 
@@ -106,7 +100,7 @@ const AgregarPeliculas = () => {
                     required
                     autoComplete="off"
                     min="1900"
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                     value={año}
                 />
 
@@ -118,7 +112,7 @@ const AgregarPeliculas = () => {
                     name="genero"
                     required
                     autoComplete="off"
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                     value={genero}
                 />
 
@@ -126,11 +120,11 @@ const AgregarPeliculas = () => {
                     id="inputDuracion"
                     type="text"
                     className="form-control mt-2"
-                    placeholder="Duracion"
+                    placeholder="Duracion (horas minutos)"
                     name="duracion"
                     required
                     autoComplete="off"
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                     value={duracion}
                 />
 
@@ -143,7 +137,7 @@ const AgregarPeliculas = () => {
                     required
                     autoComplete="off"
                     min="1"
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                     value={calificacion}
                 />
 
@@ -154,7 +148,7 @@ const AgregarPeliculas = () => {
                     name="sinopsis"
                     required
                     autoComplete="off"
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                     value={sinopsis}
                 ></textarea>
 
