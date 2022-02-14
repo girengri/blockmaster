@@ -24,7 +24,7 @@ const Home = () => {
 
   const { peliculas } = useSelector((store) => store.movie);
 
-  const [values, handleInputChange, setValues] = useForm({
+  const [values, , setValues] = useForm({
     id: "",
     nombre: "",
     año: "",
@@ -32,9 +32,11 @@ const Home = () => {
     duracion: "",
     calificacion: "",
     sinopsis: "",
+    imagen: "",
   });
 
-  const { id, nombre, año, genero, duracion, calificacion, sinopsis } = values;
+  const { nombre, año, genero, duracion, calificacion, sinopsis, imagen } =
+    values;
 
   const mostrarDetalles = (pelicula) => {
     setInsertarModal(true);
@@ -74,111 +76,27 @@ const Home = () => {
       <Modal isOpen={insertarModal}>
         <ModalHeader>
           <div>
-            <h3>Modificar Pelicula</h3>
+            <img width={300} src={imagen} alt="" />
+            <p>{calificacion}</p>
           </div>
         </ModalHeader>
 
         <ModalBody>
-          <FormGroup>
-            <input
-              className="form-control"
-              type="text"
-              onChange={handleInputChange}
-              value={id}
-            />
-          </FormGroup>
+          <div>
+            <img className="cerrarbtn" src="" alt="cerrar" onClick={() => cerrarModal()} />
+          </div>
 
-          <FormGroup>
-            <label>Nombre:</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Nombre"
-              name="nombre"
-              required
-              autoComplete="off"
-              onChange={handleInputChange}
-              value={nombre}
-            />
-          </FormGroup>
+          <div className="centrarInfoPrincipalModal">
+            <h2>{nombre}</h2>
+            <p>{sinopsis}</p>
+          </div>
 
-          <FormGroup>
-            <label>Año:</label>
-            <input
-              id="inputAño"
-              type="number"
-              className="form-control mt-2"
-              name="año"
-              required
-              autoComplete="off"
-              min="1900"
-              onChange={handleInputChange}
-              value={año}
-            />
-          </FormGroup>
-
-          <FormGroup>
-            <label>Genero:</label>
-            <input
-              id="inputGenero"
-              type="text"
-              className="form-control mt-2"
-              name="genero"
-              required
-              autoComplete="off"
-              onChange={handleInputChange}
-              value={genero}
-            />
-          </FormGroup>
-
-          <FormGroup>
-            <label>Duracion:</label>
-            <input
-              id="inputDuracion"
-              type="text"
-              className="form-control mt-2"
-              name="duracion"
-              required
-              autoComplete="off"
-              onChange={handleInputChange}
-              value={duracion}
-            />
-          </FormGroup>
-
-          <FormGroup>
-            <label>Calificacion:</label>
-            <input
-              id="inputCalificacion"
-              type="number"
-              className="form-control mt-2"
-              name="calificacion"
-              required
-              autoComplete="off"
-              min="1"
-              onChange={handleInputChange}
-              value={calificacion}
-            />
-          </FormGroup>
-
-          <FormGroup>
-            <label>Sinopsis:</label>
-            <textarea
-              id="inputSinopsis"
-              className="form-control mt-2 altoSinopsis"
-              name="sinopsis"
-              required
-              autoComplete="off"
-              onChange={handleInputChange}
-              value={sinopsis}
-            ></textarea>
-          </FormGroup>
+          <div className="centrarInfoModal">
+            <h5>{año}</h5>
+            <h5>{genero}</h5>
+            <h5>{duracion}</h5>
+          </div>
         </ModalBody>
-
-        <ModalFooter>
-          <Button color="danger" onClick={() => cerrarModal()}>
-            Cerrar
-          </Button>
-        </ModalFooter>
       </Modal>
     </React.Fragment>
   );
