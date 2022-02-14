@@ -69,10 +69,10 @@ const Navbar = ({ usuario }) => {
       <Link className="linknavbar" to="/*">
         Todas
       </Link>
-      <Link className="linknavbar" to="#">
+      <Link className="linknavbar" to="/masvaloradas">
         Más valoradas
       </Link>
-      <Link className="linknavbar" to="#">
+      <Link className="linknavbar" to="/menosvaloradas">
         Menos valoradas
       </Link>
 

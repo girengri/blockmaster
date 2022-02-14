@@ -5,6 +5,7 @@ import {
     deleteDoc,
     doc,
     getDocs,
+    orderBy,
     query,
     where,
 } from "firebase/firestore";
@@ -98,6 +99,31 @@ export const buscarPeliculasAsincrono = (inputText) => {
         });
         // console.log(peliculaEncontrada)
         dispatch(buscarPeliculasSincrono(peliculaEncontrada));
+    };
+};
+
+export const ordenarPeliculasMasValoradas = () => {
+    return async (dispatch) => {
+        const coleccion = collection(dataBase, "peliculasdb");
+        const consulta = query(coleccion, orderBy("calificacion", "desc"));
+        const datos = await getDocs(consulta);
+        let peliculaOrdenada = [];
+        datos.forEach((dat) => {
+            peliculaOrdenada.push(dat.data());
+        });
+        dispatch(buscarPeliculasSincrono(peliculaOrdenada));
+    };
+};
+export const ordenarPeliculasMenosValoradas = () => {
+    return async (dispatch) => {
+        const coleccion = collection(dataBase, "peliculasdb");
+        const consulta = query(coleccion, orderBy("calificacion", "asc"));
+        const datos = await getDocs(consulta);
+        let peliculaOrdenada = [];
+        datos.forEach((dat) => {
+            peliculaOrdenada.push(dat.data());
+        });
+        dispatch(buscarPeliculasSincrono(peliculaOrdenada));
     };
 };
 

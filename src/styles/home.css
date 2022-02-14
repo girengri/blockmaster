@@ -13,6 +13,13 @@
   position: relative;
   cursor: pointer;
 }
+.movieCardMasMenosValoradas {
+  list-style: none;
+  color: var(--color-blanco);
+  text-align: center;
+  position: relative;
+}
+
 .movieCard:hover {
   background: #423e581f;
 }
