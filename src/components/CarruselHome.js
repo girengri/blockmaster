@@ -2,6 +2,7 @@ import React from "react";
 import { Carousel } from "react-bootstrap";
 import { moviesCarrusel } from "../data/moviesCarrusel";
 import "../styles/carruselhome.css";
+import { Link } from "react-router-dom";
 
 const CarruselHome = () => {
   return (
@@ -9,16 +10,20 @@ const CarruselHome = () => {
       <Carousel>
         {moviesCarrusel.map((movie) => (
           <Carousel.Item key={movie.id}>
-            <iframe
+            <img
               className="borderRadiusCarrusel"
-              width="900"
-              height="400"
-              src={movie.trailer}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+              src={movie.imagen}
+              alt="carrusel"
+              width={900}
+            />
+            <a
+              className="btncarruseltrailer"
+              href={movie.trailer}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ver trailer
+            </a>
           </Carousel.Item>
         ))}
       </Carousel>

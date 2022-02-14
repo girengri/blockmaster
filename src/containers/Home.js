@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Button,
-  FormGroup,
-  Modal,
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
-} from "reactstrap";
+import { Modal, ModalBody, ModalHeader } from "reactstrap";
 import { listarPeliculasAsincrono } from "../actions/actionPeliculas";
 import CarruselHome from "../components/CarruselHome";
 import { useForm } from "../hooks/useForm";
@@ -77,13 +70,17 @@ const Home = () => {
         <ModalHeader>
           <div>
             <img width={300} src={imagen} alt="" />
-            <p>{calificacion}</p>
+            <p className="puntuacionCard">{calificacion}</p>
           </div>
         </ModalHeader>
 
         <ModalBody>
-          <div>
-            <img className="cerrarbtn" src="" alt="cerrar" onClick={() => cerrarModal()} />
+          <div className="cerrarbtn">
+            <img
+              src="https://res.cloudinary.com/girengri/image/upload/v1644878712/blockmasterimagenes/icons8-macos-close-30_l9i6zs.png"
+              alt="cerrar"
+              onClick={() => cerrarModal()}
+            />
           </div>
 
           <div className="centrarInfoPrincipalModal">

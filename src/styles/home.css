@@ -85,6 +85,22 @@
 
 .cerrarbtn {
   cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btncarruseltrailer {
+  border: none;
+  border-radius: 50px;
+  padding: 10px;
+  background-color: var(--color-amarillo);
+  position: absolute;
+  z-index: 2;
+  left: 2rem;
+  top: 27rem;
+  text-decoration: none;
+  color: var(--color-negro);
+  font-weight: 700;
 }
 
 @media (max-width: 560px) {
