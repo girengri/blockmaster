@@ -27,6 +27,11 @@ export const peliculasReducer = (state = initialState, action) => {
                 peliculas: action.payload,
             };
 
+        case typesPeliculas.actualizar:
+            return {
+                peliculas: action.payload,
+            };
+
         default:
             return state;
     }

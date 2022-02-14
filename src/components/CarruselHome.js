@@ -6,11 +6,12 @@ import "../styles/carruselhome.css";
 const CarruselHome = () => {
   return (
     <div className="contenedorCarrusel">
-      <Carousel className="borderrendondeado">
+      <Carousel>
         {moviesCarrusel.map((movie) => (
           <Carousel.Item key={movie.id}>
             <iframe
-              width="1510"
+              className="borderRadiusCarrusel"
+              width="900"
               height="400"
               src={movie.trailer}
               title="YouTube video player"

@@ -1,6 +1,8 @@
 .contenedorCarrusel {
-  padding: 1rem;
+  padding: 2rem;
   background: var(--color-negro);
+  display: flex;
+  justify-content: center;
 }
 
 .borderrendondeado {

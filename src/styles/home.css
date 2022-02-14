@@ -50,6 +50,11 @@
   padding: 15px;
 }
 
+.borderRadiusCarrusel {
+  border-radius: 50px;
+  border: 1px solid var(--color-amarillo);
+}
+
 @media (max-width: 560px) {
   .gridPeliculas {
     grid-template-columns: 100%;

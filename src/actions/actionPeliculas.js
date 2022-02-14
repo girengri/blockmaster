@@ -133,3 +133,11 @@ export const buscarPeliculasSincrono = (peliculas) => {
         payload: peliculas,
     };
 };
+
+//Actualizar (METODO PUT)
+export const actualizarPeliculaSincrono = (producto) => {
+    return {
+        type: typesPeliculas.actualizar,
+        payload: producto,
+    };
+};
