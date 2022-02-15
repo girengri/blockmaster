@@ -36,10 +36,11 @@ export const registroPeliculaSincrono = (pelicula) => {
 //Leer (METODO GET)
 export const listarPeliculasAsincrono = () => {
     return async (dispatch) => {
-        const querySnapshot = await getDocs(collection(dataBase, "peliculasdb"));
-        // console.log(querySnapshot);
+        const coleccion = collection(dataBase, "peliculasdb");
+        const consulta = query(coleccion, orderBy("fecha", "desc"));
+        const datos = await getDocs(consulta);
         const pelis = [];
-        querySnapshot.forEach((doc) => {
+        datos.forEach((doc) => {
             // console.log(doc.data());
             pelis.push({
                 ...doc.data(),

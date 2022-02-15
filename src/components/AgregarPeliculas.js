@@ -32,6 +32,7 @@ const AgregarPeliculas = () => {
       duracion,
       calificacion,
       sinopsis,
+      fecha: new Date(),
     };
     dispatch(registroPeliculaAsincrono(data));
     reset();
