@@ -7,6 +7,7 @@ import {
     getDocs,
     orderBy,
     query,
+    updateDoc,
     where,
 } from "firebase/firestore";
 import { dataBase } from "../firebase/firebaseConfig";
@@ -45,6 +46,7 @@ export const listarPeliculasAsincrono = () => {
         const coleccion = collection(dataBase, "peliculasdb");
         const consulta = query(coleccion, orderBy("fecha", "desc"));
         const datos = await getDocs(consulta);
+        // console.log(datos);
 
         const pelis = [];
         datos.forEach((doc) => {
@@ -148,10 +150,28 @@ export const buscarPeliculasSincrono = (peliculas) => {
 };
 
 //Actualizar (METODO PUT)
-export const actualizarPeliculaSincrono = (producto) => {
-    return {
-        type: typesPeliculas.actualizar,
-        payload: producto,
+export const actualizarPeliculaASincrono = (pelicula) => {
+    return async (dispatch) => {
+        const coleccion = collection(dataBase, "peliculasdb");
+        const consulta = query(coleccion, where("id", "==", pelicula.id));
+        const datos = await getDocs(consulta);
+        datos.forEach((docu) => {
+            const nuevoscampos = {
+                nombre: pelicula.nombre,
+                año: pelicula.año,
+                genero: pelicula.genero,
+                duracion: pelicula.duracion,
+                calificacion: pelicula.calificacion,
+                sinopsis: pelicula.sinopsis,
+            };
+            updateDoc(doc(dataBase, "peliculasdb", docu.id), nuevoscampos);
+        });
+        dispatch(listarPeliculasAsincrono());
+        toast("Pelicula Modificada", {
+            type: "info",
+            autoClose: 3000,
+            position: toast.POSITION.TOP_CENTER,
+        });
     };
 };
 

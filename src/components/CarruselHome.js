@@ -2,7 +2,6 @@ import React from "react";
 import { Carousel } from "react-bootstrap";
 import { moviesCarrusel } from "../data/moviesCarrusel";
 import "../styles/carruselhome.css";
-import { Link } from "react-router-dom";
 
 const CarruselHome = () => {
   return (

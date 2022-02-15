@@ -5,6 +5,7 @@ import { listarPeliculasAsincrono } from "../actions/actionPeliculas";
 import CarruselHome from "../components/CarruselHome";
 import { useForm } from "../hooks/useForm";
 import "../styles/home.css";
+import "../styles/modaldetalles.css";
 
 const Home = () => {
   const [insertarModal, setInsertarModal] = useState(false);

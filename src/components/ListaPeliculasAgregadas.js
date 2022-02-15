@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  actualizarPeliculaASincrono,
   eliminarPeliculaASincrono,
   listarPeliculasAsincrono,
 } from "../actions/actionPeliculas";
@@ -11,7 +12,6 @@ import {
   Modal,
   ModalBody,
   ModalFooter,
-  ModalHeader,
 } from "reactstrap";
 import "../styles/listaPeliculasAgregadas.css";
 import { useForm } from "../hooks/useForm";
@@ -29,8 +29,7 @@ const ListaPeliculasAgregadas = () => {
     sinopsis: "",
   });
 
-  const { id, nombre, año, genero, duracion, calificacion, sinopsis } = values
-
+  const { nombre, año, genero, duracion, calificacion, sinopsis } = values;
 
   const dispatch = useDispatch();
 
@@ -43,11 +42,13 @@ const ListaPeliculasAgregadas = () => {
   const handleClickModificar = (pelicula) => {
     setInsertarModal(true);
     setValues(pelicula);
+    // dispatch(actualizarPeliculaASincrono(pelicula));
   };
 
   const cerrarModal = () => {
     setInsertarModal(false);
   };
+  // console.log(values)
 
   return (
     <React.Fragment>
@@ -97,13 +98,10 @@ const ListaPeliculasAgregadas = () => {
       </Container>
 
       <Modal isOpen={insertarModal}>
-        <ModalHeader>
+        <ModalBody>
           <div>
             <h3>Modificar Pelicula</h3>
           </div>
-        </ModalHeader>
-
-        <ModalBody>
           <FormGroup>
             <label>Nombre:</label>
             <input
@@ -189,9 +187,13 @@ const ListaPeliculasAgregadas = () => {
             ></textarea>
           </FormGroup>
         </ModalBody>
-
         <ModalFooter>
-          <Button color="warning">Modificar</Button>
+          <Button
+            color="warning"
+            onClick={() => dispatch(actualizarPeliculaASincrono(values))}
+          >
+            Modificar
+          </Button>
           <Button color="danger" onClick={() => cerrarModal()}>
             Cerrar
           </Button>

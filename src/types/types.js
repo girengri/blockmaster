@@ -9,5 +9,4 @@ export const typesPeliculas = {
     listar: "LISTAR",
     eliminar: "ELIMINAR",
     buscar: "BUSCAR",
-    actualizar:"ACTUALIZAR"
 };

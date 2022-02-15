@@ -1,0 +1,33 @@
+.modal-content {
+  flex-direction: row;
+  right: 22rem;
+  width: 72rem;
+  background-color: var(--color-negro-modal);
+  color: var(--color-blanco);
+  border-radius: 50px;
+}
+
+.centrarInfoModal {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 100px;
+}
+
+.centrarInfoPrincipalModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-left: 50px;
+}
+
+.modal {
+  margin-top: 5rem;
+}
+
+.cerrarbtn {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+}
