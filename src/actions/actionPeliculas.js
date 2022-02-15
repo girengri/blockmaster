@@ -10,6 +10,7 @@ import {
     where,
 } from "firebase/firestore";
 import { dataBase } from "../firebase/firebaseConfig";
+import { toast } from "react-toastify";
 
 //Crear (METODO POST)
 export const registroPeliculaAsincrono = (pelicula) => {
@@ -18,7 +19,11 @@ export const registroPeliculaAsincrono = (pelicula) => {
             .then((resp) => {
                 dispatch(registroPeliculaSincrono(pelicula));
                 dispatch(listarPeliculasAsincrono());
-                console.log(resp);
+                // console.log(resp);
+                toast("Nueva Pelicula Agregada", {
+                    type: "success",
+                    autoClose: 5000,
+                });
             })
             .catch((error) => {
                 console.log(error);
@@ -39,6 +44,7 @@ export const listarPeliculasAsincrono = () => {
         const coleccion = collection(dataBase, "peliculasdb");
         const consulta = query(coleccion, orderBy("fecha", "desc"));
         const datos = await getDocs(consulta);
+
         const pelis = [];
         datos.forEach((doc) => {
             // console.log(doc.data());
@@ -73,6 +79,10 @@ export const eliminarPeliculaASincrono = (id) => {
         });
         dispatch(eliminarPeliculaSincrono(id));
         dispatch(listarPeliculasAsincrono());
+        toast("Pelicula Eliminada", {
+            type: "error",
+            autoClose: 3000,
+        });
     };
 };
 
@@ -142,3 +152,5 @@ export const actualizarPeliculaSincrono = (producto) => {
         payload: producto,
     };
 };
+
+//Paginacion

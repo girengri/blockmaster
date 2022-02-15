@@ -39,6 +39,25 @@ const Home = () => {
   const cerrarModal = () => {
     setInsertarModal(false);
   };
+
+  // const paginacionSiguiente = async () => {
+  //   const coleccion = collection(dataBase, "peliculasdb");
+  //   const consulta = query(coleccion, orderBy("fecha", "desc"), limit(6));
+  //   const datos = await getDocs(consulta);
+  //   console.log(datos)
+
+  //   const ultimoDato = datos.docs[datos.docs.length - 1];
+
+  //   const next = query(
+  //     coleccion,
+  //     orderBy("fecha"),
+  //     startAfter(ultimoDato),
+  //     limit(6)
+  //   );
+
+  //   return next;
+  // };
+
   return (
     <React.Fragment>
       <CarruselHome />
@@ -64,6 +83,7 @@ const Home = () => {
           ))}
           ;
         </ul>
+        {/* <button onClick={() => paginacionSiguiente()}>Siguiente</button> */}
       </div>
 
       <Modal isOpen={insertarModal}>
