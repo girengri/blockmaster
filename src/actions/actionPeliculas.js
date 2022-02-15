@@ -22,7 +22,8 @@ export const registroPeliculaAsincrono = (pelicula) => {
                 // console.log(resp);
                 toast("Nueva Pelicula Agregada", {
                     type: "success",
-                    autoClose: 5000,
+                    autoClose: 3000,
+                    position: toast.POSITION.TOP_CENTER,
                 });
             })
             .catch((error) => {
@@ -82,6 +83,7 @@ export const eliminarPeliculaASincrono = (id) => {
         toast("Pelicula Eliminada", {
             type: "error",
             autoClose: 3000,
+            position: toast.POSITION.TOP_CENTER,
         });
     };
 };
