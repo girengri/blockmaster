@@ -6,6 +6,7 @@ import {
     signOut,
 } from "firebase/auth";
 import { facebook, google } from "../firebase/firebaseConfig";
+import { toast } from "react-toastify";
 
 export const logoutAsincrono = () => {
     return (dispatch) => {
@@ -37,8 +38,11 @@ export const loginEmailAndPassword = (correo, contraseña) => {
                 console.log("Bienvenido");
             })
             .catch((error) => {
-                console.log(error);
-                console.log("El usuario no existe");
+                toast("Correo o Contraseña Incorrectos", {
+                    type: "error",
+                    autoClose: 3000,
+                    position: toast.POSITION.TOP_CENTER,
+                });
             });
     };
 };

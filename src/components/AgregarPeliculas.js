@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { registroPeliculaAsincrono } from "../actions/actionPeliculas";
 import { v4 as uuidv4 } from "uuid";
 import { useForm } from "../hooks/useForm";
+import * as Yup from "yup";
 
 const AgregarPeliculas = () => {
   const dispatch = useDispatch();
@@ -38,10 +39,6 @@ const AgregarPeliculas = () => {
     reset();
   };
 
-  const handleInputClick = () => {
-    document.querySelector("#inputImagen").click();
-  };
-
   const handleFileChange = (e) => {
     // console.log(e.target.files[0]);
     const file = e.target.files[0];
@@ -66,32 +63,27 @@ const AgregarPeliculas = () => {
         <input
           id="inputImagen"
           type="file"
-          className="form-control"
+          className="form-control btn btn-dark"
           placeholder="Seleccionar Imagen"
           name="imagen"
           required
-          style={{ display: "none" }}
           onChange={handleFileChange}
         />
-        <button
-          type="button"
-          className="btn btn-dark"
-          onClick={() => handleInputClick()}
-        >
-          Seleccionar Imagen
-        </button>
 
-        <input
-          id="inputNombre"
-          type="text"
-          className="form-control"
-          placeholder="Nombre"
-          name="nombre"
-          required
-          autoComplete="off"
-          onChange={handleInputChange}
-          value={nombre}
-        />
+        <div>
+          <input
+            id="inputNombre"
+            type="text"
+            className="form-control"
+            placeholder="Nombre"
+            name="nombre"
+            required
+            autoComplete="off"
+            onChange={handleInputChange}
+            value={nombre}
+          />
+          <div className="valid-tooltip">El campo es requerido</div>
+        </div>
 
         <input
           id="inputAño"

@@ -6,23 +6,28 @@ import {
   loginFacebook,
   loginGoogle,
 } from "../actions/actionLogin";
-import { useForm } from "../hooks/useForm";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import "../styles/login.css";
 
 const Login = () => {
   const dispatch = useDispatch();
 
-  const [values, handleInputChange] = useForm({
-    correo: "",
-    contraseña: "",
+  const formik = useFormik({
+    initialValues: {
+      correo: "",
+      contraseña: "",
+    },
+    onSubmit: ({ correo, contraseña }) => {
+      dispatch(loginEmailAndPassword(correo, contraseña));
+    },
+    validationSchema: Yup.object({
+      correo: Yup.string()
+        .email("No es un email valido")
+        .required("El email es obligatorio"),
+      contraseña: Yup.string().required("La contraseña es obligatoria"),
+    }),
   });
-
-  const { correo, contraseña } = values;
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    dispatch(loginEmailAndPassword(correo, contraseña));
-  };
 
   const handleGoogle = () => {
     dispatch(loginGoogle());
@@ -41,34 +46,33 @@ const Login = () => {
         />
       </div>
 
-      <form className="centrarSesion" onSubmit={handleLogin}>
+      <form className="centrarSesionLogin" onSubmit={formik.handleSubmit}>
         <h2>Inicia sesión</h2>
         <div className="itemlogin">
           <input
             id="correo"
             name="correo"
             type="text"
-            required
-            value={correo}
-            onChange={handleInputChange}
+            onChange={formik.handleChange}
             placeholder="Dirección de correo electrónico"
             className="itemcajas"
             autoComplete="off"
           />
         </div>
+        <p className="erroresFormik">{formik.errors.correo}</p>
+
         <div className="itemlogin">
           <input
             id="contraseña"
             name="contraseña"
             type="password"
-            required
-            value={contraseña}
-            onChange={handleInputChange}
+            onChange={formik.handleChange}
             placeholder="Contraseña"
             className="itemcajas"
             autoComplete="off"
           />
         </div>
+        <p className="erroresFormik">{formik.errors.contraseña}</p>
         <div className="itemlogin">
           <button className="btnlogin" type="submit">
             Iniciar sesión

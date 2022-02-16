@@ -42,13 +42,11 @@ const ListaPeliculasAgregadas = () => {
   const handleClickModificar = (pelicula) => {
     setInsertarModal(true);
     setValues(pelicula);
-    // dispatch(actualizarPeliculaASincrono(pelicula));
   };
 
   const cerrarModal = () => {
     setInsertarModal(false);
   };
-  // console.log(values)
 
   return (
     <React.Fragment>

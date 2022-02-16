@@ -20,7 +20,17 @@
 .centrarSesion {
   margin: 10rem auto;
   width: 22rem;
-  height: 30rem;
+  height: 38rem;
+  background-color: var(--color-negro-formulario);
+  position: relative;
+  border-radius: 20px;
+  color: var(--color-blanco);
+}
+
+.centrarSesionLogin {
+  margin: 10rem auto;
+  width: 22rem;
+  height: 31rem;
   background-color: var(--color-negro-formulario);
   position: relative;
   border-radius: 20px;
@@ -101,4 +111,10 @@ span {
 
 .btnlogin:hover {
   background-color: var(--color-azul-hover);
+}
+
+.erroresFormik {
+  text-align: center;
+  font-weight: 800;
+  color: var(--color-errores-formik);
 }
