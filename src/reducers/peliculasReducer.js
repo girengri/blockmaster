@@ -15,19 +15,7 @@ export const peliculasReducer = (state = initialState, action) => {
             return {
                 peliculas: [...action.payload],
             };
-
-        case typesPeliculas.eliminar:
-            return {
-                peliculas: state.peliculas.filter(
-                    (pel) => pel.sinopsis !== action.payload
-                ),
-            };
         case typesPeliculas.buscar:
-            return {
-                peliculas: action.payload,
-            };
-
-        case typesPeliculas.actualizar:
             return {
                 peliculas: action.payload,
             };

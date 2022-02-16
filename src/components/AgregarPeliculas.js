@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { registroPeliculaAsincrono } from "../actions/actionPeliculas";
 import { v4 as uuidv4 } from "uuid";
 import { useForm } from "../hooks/useForm";
-import * as Yup from "yup";
 
 const AgregarPeliculas = () => {
   const dispatch = useDispatch();
