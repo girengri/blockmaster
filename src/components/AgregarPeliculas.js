@@ -39,11 +39,9 @@ const AgregarPeliculas = () => {
   };
 
   const handleFileChange = (e) => {
-    // console.log(e.target.files[0]);
     const file = e.target.files[0];
     fileUpload(file)
       .then((response) => {
-        // console.log(response);
         setValues({
           ...values,
           imagen: response,

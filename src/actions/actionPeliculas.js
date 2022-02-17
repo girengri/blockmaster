@@ -20,7 +20,6 @@ export const registroPeliculaAsincrono = (pelicula) => {
             .then((resp) => {
                 dispatch(registroPeliculaSincrono(pelicula));
                 dispatch(listarPeliculasAsincrono());
-                // console.log(resp);
                 toast("Nueva Pelicula Agregada", {
                     type: "success",
                     autoClose: 3000,
@@ -46,16 +45,13 @@ export const listarPeliculasAsincrono = () => {
         const coleccion = collection(dataBase, "peliculasdb");
         const consulta = query(coleccion, orderBy("fecha", "desc"));
         const datos = await getDocs(consulta);
-        // console.log(datos);
 
         const pelis = [];
         datos.forEach((doc) => {
-            // console.log(doc.data());
             pelis.push({
                 ...doc.data(),
             });
         });
-        // console.log(pelis);
         dispatch(listarPeliculasSincrono(pelis));
     };
 };
@@ -71,13 +67,9 @@ export const listarPeliculasSincrono = (peliculas) => {
 export const eliminarPeliculaASincrono = (id) => {
     return async (dispatch) => {
         const coleccion = collection(dataBase, "peliculasdb");
-        // console.log(coleccion);
         const consulta = query(coleccion, where("id", "==", id));
-        // console.log(consulta);
         const datos = await getDocs(consulta);
-        // console.log(datos);
         datos.forEach((docu) => {
-            // console.log(docu.id);
             deleteDoc(doc(dataBase, "peliculasdb", docu.id));
         });
         dispatch(eliminarPeliculaSincrono(id));
@@ -100,19 +92,14 @@ export const eliminarPeliculaSincrono = (id) => {
 //Buscar
 export const buscarPeliculasAsincrono = (inputText) => {
     return async (dispatch) => {
-        // console.log(inputText);
         const coleccion = collection(dataBase, "peliculasdb");
-        // console.log(coleccion);
         const consulta = query(coleccion, where("nombre", "==", inputText));
-        // console.log(consulta)
         const datos = await getDocs(consulta);
-        // console.log(datos)
         let peliculaEncontrada = [];
         datos.forEach((dat) => {
-            // console.log(dat.data());
             peliculaEncontrada.push(dat.data());
         });
-        // console.log(peliculaEncontrada)
+        console.log(peliculaEncontrada);
         dispatch(buscarPeliculasSincrono(peliculaEncontrada));
     };
 };
@@ -174,5 +161,3 @@ export const actualizarPeliculaASincrono = (pelicula) => {
         });
     };
 };
-
-//Paginacion

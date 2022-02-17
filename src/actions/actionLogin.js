@@ -52,7 +52,6 @@ export const loginGoogle = () => {
         const auth = getAuth();
         signInWithPopup(auth, google)
             .then((user) => {
-                // console.log(user);
                 dispatch(loginSincrono(user.uid, user.displayName));
             })
             .catch((error) => console.log(error));
@@ -64,7 +63,6 @@ export const loginFacebook = () => {
         const auth = getAuth();
         signInWithPopup(auth, facebook)
             .then((user) => {
-                // console.log(user);
                 dispatch(loginSincrono(user.uid, user.displayName));
             })
             .catch((error) => console.log(error));

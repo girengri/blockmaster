@@ -37,7 +37,6 @@ const Navbar = ({ usuario }) => {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
       url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDvS3_rBwM7RJYjDOnPzquTpJVlskDs7nI`;
-      // console.log(latitude, longitude);
       getUbicacion(url);
     });
   };
@@ -45,8 +44,6 @@ const Navbar = ({ usuario }) => {
   const getUbicacion = async (url) => {
     const resp = await fetch(url);
     const { results } = await resp.json();
-    // console.log(results);
-    // console.log(results[6].formatted_address);
     setUbicacion(results[6].formatted_address);
   };
 

@@ -11,7 +11,6 @@ export const registroEmailPasswordNombre = (correo, contraseña, nombre) => {
         createUserWithEmailAndPassword(auth, correo, contraseña)
             .then(async ({ user }) => {
                 await updateProfile(auth.currentUser, { displayName: nombre });
-                // console.log(user);
                 dispatch(registerSincrono(user.email, user.uid, user.displayName));
             })
             .catch((error) => console.log(error));

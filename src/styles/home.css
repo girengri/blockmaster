@@ -50,7 +50,6 @@
   padding: 15px;
 }
 
-
 @media (max-width: 560px) {
   .gridPeliculas {
     grid-template-columns: 100%;
@@ -63,4 +62,21 @@
   .puntuacionCard {
     left: 1.3rem;
   }
+}
+
+.imagenInclinada {
+  transform: scale(0.7) skew(37deg, -7deg) rotate(4deg) translate(35px);
+}
+
+.puntuacionInclinada {
+  transform: scale(0.7) skew(37deg, -7deg) rotate(4deg) translate(35px);
+  position: absolute;
+  z-index: 2;
+  border: 3px solid var(--color-amarillo);
+  background: var(--color-gris-placeholders);
+  font-weight: 700;
+  border-radius: 50px;
+  top: 5rem;
+  left: -45px;
+  padding: 15px;
 }

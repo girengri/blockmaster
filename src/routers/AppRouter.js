@@ -14,7 +14,6 @@ const AppRouter = () => {
   useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
-      // console.log(user);
       setUser(user);
       if (user?.uid) {
         setIsLoggedIn(true);
