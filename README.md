@@ -9,8 +9,8 @@ Con block master puede ver las ultimas peliculas del momento, agregar las que ma
 Puede verlo aquí: <https://blockmasterapp-f8bbb.web.app/>
 
 ## Requerimientos
-Tener habilitado JavaScript en el Navegador
-Tener instalado node en nuestro pc
+- Tener habilitado JavaScript en el Navegador
+- Tener instalado node en nuestro pc
 
 ## 🔥 Instalación
 
