@@ -24,8 +24,11 @@ Puede verlo aquí: <https://blockmasterapp-f8bbb.web.app/>
 
 ### 💻 Escritorio
   
- ![alt text](https://res.cloudinary.com/girengri/image/upload/v1645146253/blockmasterimagenes/screencapture-blockmasterapp-f8bbb-web-app-2022-02-17-20_03_11_giwxli.png)
-
+![logo](https://res.cloudinary.com/girengri/image/upload/v1645216368/blockmasterimagenes/screencapture-blockmasterapp-f8bbb-web-app-iniciarsesion-2022-02-18-15_32_34_oschid.png)
+![logo](https://res.cloudinary.com/girengri/image/upload/v1645216409/blockmasterimagenes/screencapture-blockmasterapp-f8bbb-web-app-registro-2022-02-18-15_33_15_dsabzj.png)
+![logo](https://res.cloudinary.com/girengri/image/upload/v1645216938/blockmasterimagenes/screencapture-blockmasterapp-f8bbb-web-app-2022-02-18-15_42_03_bpslfy.png)
+![logo](https://res.cloudinary.com/girengri/image/upload/v1645217073/blockmasterimagenes/screencapture-blockmasterapp-f8bbb-web-app-masvaloradas-2022-02-18-15_43_07_oyz7iz.png)
+![logo](https://res.cloudinary.com/girengri/image/upload/v1645216630/blockmasterimagenes/screencapture-blockmasterapp-f8bbb-web-app-registroPeliculas-2022-02-18-15_36_55_q4r52e.png)
 
 
 ## 📌 Stack
