@@ -6,7 +6,7 @@ Block Master es la plataforma de contenido más reciente en el mercado pero a la
 Con block master puede ver las ultimas peliculas del momento, agregar las que mas le gusten y eliminar las que no le llamen la atencion 
 
 
-Puedes verlo aquí: <https://blockmasterapp-f8bbb.web.app/>
+Puede verlo aquí: <https://blockmasterapp-f8bbb.web.app/>
 
 ## Requerimientos
 <Tener habilitado JavaScript en el Navegador>
