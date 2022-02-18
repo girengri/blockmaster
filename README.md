@@ -23,8 +23,9 @@ Puedes verlo aquí: <https://blockmasterapp-f8bbb.web.app/>
 ## 🔍 Vistas 
 
 ### 💻 Escritorio
+  
+  ![alt text](https://res.cloudinary.com/girengri/image/upload/v1645146253/blockmasterimagenes/screencapture-blockmasterapp-f8bbb-web-app-2022-02-17-20_03_11_giwxli.png)
 
-<https://res.cloudinary.com/girengri/image/upload/v1645146253/blockmasterimagenes/screencapture-blockmasterapp-f8bbb-web-app-2022-02-17-20_03_11_giwxli.png>
 
 
 ## 📌 Stack
@@ -46,4 +47,4 @@ Cloudinary
 
 ## 🌟 Autor
 
-* **<Giovany Rendon>**  - [@<girengri>](https://github.com/<girengri>)
+* **<Giovany Rendon>**  - [@girengri](https://github.com/girengri)
