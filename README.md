@@ -10,6 +10,7 @@ Puede verlo aquí: <https://blockmasterapp-f8bbb.web.app/>
 
 ## Requerimientos
 - Tener habilitado JavaScript en el Navegador
+- Tener instalado git en nuestro pc
 - Tener instalado node en nuestro pc
 
 ## 🔥 Instalación
