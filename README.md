@@ -9,35 +9,41 @@ Con block master puede ver las ultimas peliculas del momento, agregar las que ma
 Puedes verlo aquí: <https://blockmasterapp-f8bbb.web.app/>
 
 ## Requerimientos
-React &nbsp;
-React router dom &nbsp; &nbsp; &nbsp;&nbsp;
-<qué requiere tu programa>&nbsp; &nbsp; &nbsp;&nbsp;
-<qué requiere tu programa>&nbsp; &nbsp; &nbsp;&nbsp;
-<qué requiere tu programa>&nbsp; &nbsp; &nbsp;&nbsp;
-<qué requiere tu programa>&nbsp; &nbsp; &nbsp;&nbsp;
-<qué requiere tu programa>&nbsp; &nbsp; &nbsp;&nbsp;
+<Tener habilitado JavaScript en el Navegador>
+<Tener instalado node en nuestro pc>
 
 ## 🔥 Instalación
 
 ```shell
-<escribe aquí cómo lo ejecuto>
-<aquí si necesito ejecutar otra cosa>
+<git clone --branch desarrolloGiovany https://github.com/girengri/blockmaster.git>
+<npm install>
+<npm start>
 ```
 
 ## 🔍 Vistas 
 
-### 💻 Desktop
+### 💻 Escritorio
 
-<imagen aquí>
+<https://res.cloudinary.com/girengri/image/upload/v1645146253/blockmasterimagenes/screencapture-blockmasterapp-f8bbb-web-app-2022-02-17-20_03_11_giwxli.png>
 
-### 📱 Mobile
-
-<imagen aquí>
 
 ## 📌 Stack
 
-<escribe aquí>
+```shell
+HTML
+CSS
+Reactstrap
+Bootstrap
+React-toastify
+React
+React-router-dom
+Redux
+Formik
+Yup
+Firebase
+Cloudinary
+```
 
 ## 🌟 Autor
 
-* **<Tu nombre>**  - [@<username>](https://github.com/<username>)
+* **<Giovany Rendon>**  - [@<girengri>](https://github.com/<girengri>)
