@@ -15,9 +15,9 @@ Puede verlo aquí: <https://blockmasterapp-f8bbb.web.app/>
 ## 🔥 Instalación
 
 ```shell
-<git clone --branch desarrolloGiovany https://github.com/girengri/blockmaster.git>
-<npm install>
-<npm start>
+git clone --branch desarrolloGiovany https://github.com/girengri/blockmaster.git
+npm install
+npm start
 ```
 
 ## 🔍 Vistas 
